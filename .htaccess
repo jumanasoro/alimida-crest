@@ -1,0 +1,10 @@
+# Block access to Git metadata and repo files
+RedirectMatch 404 /\.git
+<FilesMatch "^(README\.md|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+# Cache images for a week
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 7 days"
+</IfModule>
